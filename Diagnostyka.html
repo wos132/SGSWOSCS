@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diagnostyka WOW GO BOARD 2S MAX</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
+      color: white;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    .info-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 1rem 2rem;
+      margin: 1rem 0;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    .info-box p {
+      margin: 0.4rem 0;
+    }
+
+    button {
+      background-color: #4caf50;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 1.5rem;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .diagnostic {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      text-align: left;
+      display: none;
+      flex-direction: column;
+      gap: 0.8rem;
+      background-color: rgba(0, 0, 0, 0.2);
+      padding: 1.2rem;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+    }
+
+    .loading {
+      display: none;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .check {
+      color: #8bc34a;
+      font-weight: bold;
+    }
+
+    .error {
+      color: #f44336;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>System Diagnostyki</h1>
+    <p>WOWGO BOARD 2S MAX</p>
+  </header>
+
+  <div class="info-box">
+    <p><strong>Numer seryjny:</strong> WG2SMAX-98327X</p>
+    <p><strong>Moduł łączności:</strong> GSM / LTE</p>
+    <p><strong>Status:</strong> Gotowa do diagnozy</p>
+  </div>
+
+  <button onclick="startDiagnostic()">🔍 Rozpocznij diagnozę</button>
+
+  <div class="loading" id="loadingText">Diagnozowanie...</div>
+
+<div class="diagnostic" id="diagnosticResults">
+  <div> Bateria: <span class="check">✔ OK</span></div>
+  <div> Sterownik: <span class="check">✔ OK</span></div>
+  <div> Pilot: <span class="check">✔ OK</span></div>
+  <div>🛞 Silnik 1M1: <span class="check">✔ OK</span></div>
+  <div>
+    🛞 Silnik 1M2: 
+    <span class="error">✖ Błąd E140 (Zalanie/zamoczenie)</span><br/>
+     <a href="https://wowgoboard.com/products/hub-motor-for-wowgo-2s-max" target="_blank" style="color: #4fc3f7; text-decoration: underline;">
+      Zobacz zamiennik silnika w oficjalnym sklepie →
+    </a>
+  </div>
+</div>
+
+
+  <script>
+    function startDiagnostic() {
+      document.getElementById("loadingText").style.display = "block";
+      document.getElementById("diagnosticResults").style.display = "none";
+
+      setTimeout(() => {
+        document.getElementById("loadingText").style.display = "none";
+        document.getElementById("diagnosticResults").style.display = "flex";
+      }, 2500); // symulacja trwania diagnostyki
+    }
+  </script>
+</body>
+</html>
